@@ -14,7 +14,7 @@ namespace Contact_TracingApp1
         //decalre the sql connection (after importing using System.Data and System.Data.SqlClient)
         public static SqlConnection conn;
         //set the connection string
-        private static string dbconnect = "  "; //Connection String
+        private static string dbconnect = " Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Harvey\\Documents\\Contact-Tracing-Management-System.mdf;Integrated Security=True;Connect Timeout=30 "; //Connection String
 
         public static void DB()
         {// used try-catch to see the error clearly
@@ -33,7 +33,7 @@ namespace Contact_TracingApp1
         }
         public string GetConnection()
         {
-            string conn = "";//Connection String
+            string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Harvey\\Documents\\Contact-Tracing-Management-System.mdf;Integrated Security=True;Connect Timeout=30";//Connection String
             return conn;
         }
        

@@ -7,30 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using MongoDB.Driver;
-using MongoDB.Bson;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
 
 namespace Contact_TracingApp1
 {
-    public partial class Form2 : Form
+    public partial class contactList : Form
     {
-       SqlConnection conn;
-       SqlCommand cmd;
-       SqlDataReader dr;
-       ConnectionDB db = new ConnectionDB();
-        public Form2()
+        SqlConnection conn;
+        SqlCommand cmd;
+        SqlDataReader dr;
+        ConnectionDB db = new ConnectionDB();
+        public contactList()
         {
             InitializeComponent();
-            Loadrecords();
-            
-
-
             conn = new SqlConnection(db.GetConnection());
-           
+            Loadrecords();
         }
-        //load database to database grid 2
         public void Loadrecords()
         {
 
@@ -40,7 +33,7 @@ namespace Contact_TracingApp1
             Functions.Functions.gen = "SELECT * FROM contacts";
             Functions.Functions.command = new SqlCommand(Functions.Functions.gen, ConnectionDB.conn);
             Functions.Functions.reader = Functions.Functions.command.ExecuteReader();
-           
+
             while (Functions.Functions.reader.Read())
             {
                 i++;
@@ -48,12 +41,20 @@ namespace Contact_TracingApp1
 
             }
             Functions.Functions.reader.Close();
-           
+
+        }
+        private void btndashboard_Click(object sender, EventArgs e)
+        {
+            Form2 main = new Form2();
+            main.Show();
+            this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            Registration registration = new Registration();
+            registration.Show();
+            this.Close();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -100,46 +101,25 @@ namespace Contact_TracingApp1
             {
                 conn.Open();
                 cmd = new SqlCommand("INSERT into contacts (TimeStamp, FirstName, LastName, Email, Address, PhoneNumber) VALUES (@TimeStamp, @FirstName, @LastName, @Email, @Address, @PhoneNumber)", conn);
-                cmd.Parameters.AddWithValue("@TimeStamp",dgvcontacts.Rows[i].Cells[1].Value.ToString());
-                cmd.Parameters.AddWithValue("@FirstName",dgvcontacts.Rows[i].Cells[2].Value.ToString());
-                cmd.Parameters.AddWithValue("@LastName",dgvcontacts.Rows[i].Cells[3].Value.ToString());
-                cmd.Parameters.AddWithValue("@Email",dgvcontacts.Rows[i].Cells[4].Value.ToString());
-                cmd.Parameters.AddWithValue("@Address",dgvcontacts.Rows[i].Cells[5].Value.ToString());
-                cmd.Parameters.AddWithValue("@PhoneNumber",dgvcontacts.Rows[i].Cells[6].Value.ToString());
+                cmd.Parameters.AddWithValue("@TimeStamp", dgvcontacts.Rows[i].Cells[1].Value.ToString());
+                cmd.Parameters.AddWithValue("@FirstName", dgvcontacts.Rows[i].Cells[2].Value.ToString());
+                cmd.Parameters.AddWithValue("@LastName", dgvcontacts.Rows[i].Cells[3].Value.ToString());
+                cmd.Parameters.AddWithValue("@Email", dgvcontacts.Rows[i].Cells[4].Value.ToString());
+                cmd.Parameters.AddWithValue("@Address", dgvcontacts.Rows[i].Cells[5].Value.ToString());
+                cmd.Parameters.AddWithValue("@PhoneNumber", dgvcontacts.Rows[i].Cells[6].Value.ToString());
                 cmd.ExecuteNonQuery();
-               
+
                 conn.Close();
-                
+
             }
             MessageBox.Show("Records Successfully Saved! ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Loadrecords();
-            
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Registration registration = new Registration();
-            registration.Show();
-
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
+        private void contactList_Load(object sender, EventArgs e)
         {
             
         }
-        public void Filldata2()
-        {
-            Functions.Functions.gen = "Select contacts.TimeStamp AS [TIMESTAMP], contact.FirstName AS [FIRST NAME], contacts.LastName AS [LAST NAME], contacts.Email AS [EMAIL], contacts.Address AS [ADDRESS], contacts.PhoneNumber AS [PHONE NUMBER]";
-            Functions.Functions.fill(Functions.Functions.gen, dgvcontacts);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            contactList contacts = new contactList();
-            contacts.Show();
-            this.Close();
-        }
+        
     }
 }

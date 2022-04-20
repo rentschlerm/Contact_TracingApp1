@@ -75,18 +75,10 @@ C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\MongoDB.Libmongocrypt.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\MySql.Data.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\SharpCompress.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Buffers.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.IO.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Memory.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Net.Http.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Numerics.Vectors.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Runtime.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.AccessControl.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.Cryptography.Algorithms.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.Cryptography.Encoding.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.Cryptography.Primitives.dll
-C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.Cryptography.X509Certificates.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.Principal.Windows.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Text.Encoding.CodePages.dll
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\Google.Protobuf.dll
@@ -109,7 +101,6 @@ C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Runtime.CompilerSe
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.AccessControl.xml
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Security.Principal.Windows.xml
 C:\w\Contact_TracingApp1\Contact_TracingApp1\bin\Debug\System.Text.Encoding.CodePages.xml
-C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.csprojAssemblyReference.cache
 C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.Form1.resources
 C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.Form2.resources
 C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.Properties.Resources.resources
@@ -119,3 +110,6 @@ C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.cspro
 C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.csproj.CopyComplete
 C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.exe
 C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.pdb
+C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.csproj.AssemblyReference.cache
+C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.csproj.SuggestedBindingRedirects.cache
+C:\w\Contact_TracingApp1\Contact_TracingApp1\obj\Debug\Contact_TracingApp1.contactList.resources

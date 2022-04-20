@@ -12,11 +12,12 @@ namespace Contact_TracingApp1.Functions
 {
     internal class Functions
     {
-        public static string gen = "";//variable to hold SQL statments
+        public static string gen = " ";//variable to hold SQL statments
         public static SqlConnection conn;
         public static SqlCommand command;// process the SQL statements and connection
-        public static SqlDataAdapter reader;//retrieve data from the database 
+        public static SqlDataReader reader;//retrieve data from the database 
 
+                                //(sql statements, //where to store the data)
         public static void fill(string q, DataGridView dgv)
         {
             try

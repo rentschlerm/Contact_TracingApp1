@@ -17,59 +17,13 @@ namespace Contact_TracingApp1
     public partial class Registration : Form
     {
 
-       //     static MongoClient m_Client;
-       //     static IMongoDatabase m_Database = m_Client.GetDatabase("Contact_Tracing");
-       //     static IMongoCollection<UserRegistration> m_Collection = m_Database.GetCollection<UserRegistration>("Users");
 
-
-       // public void Read()
-       // {
-        /*
-          //  List<UserRegistration> list = m_Collection.AsQueryable().ToList<UserRegistration>();
-            dgvRegistration.DataSource = list;
-            txtFirstname.Text = dgvRegistration.Rows[0].Cells[0].Value.ToString();
-            txtLastname.Text = dgvRegistration.Rows[0].Cells[1].Value.ToString();
-            txtUsername.Text = dgvRegistration.Rows[0].Cells[2].Value.ToString();
-            txtPassword.Text = dgvRegistration.Rows[0].Cells[3].Value.ToString();
-            txtEmailaddress.Text = dgvRegistration.Rows[0].Cells[4].Value.ToString();
-            txtContactno.Text = dgvRegistration.Rows[0].Cells[5].Value.ToString();
-            */
-       // }
-        /*   public class UserRegistration
-          {
-            //  public UserRegistration()
-             // {
-            //  }
-
-             public UserRegistration(string firstname, string lastname, string email, string username, string password, long phonenumber)
-              {
-                  Firstname = firstname;
-                  Lastname = lastname;
-                  Email = email;
-                  Username = username;
-                  Password = password;
-                  Phonenumber = phonenumber;
-              }
-
-              [BsonRepresentation(BsonType.ObjectId)]
-              public string Id { get; set; } = ObjectId.GenerateNewId().ToString();
-             public String Firstname { get; set; }
-             public String Lastname { get; set; }
-             public String Email { get; set; }
-             public String Username { get; set; }
-             public String Password { get; set; }
-             public long Phonenumber { get; set; }
-          }
-
-
-         // MongoClient m_Client;
-       //   IMongoDatabase m_Database;
-        //  IMongoCollection<Registration> m_Collection;
-  */
+       
+        
         public Registration()
         {
             InitializeComponent();
-           // Read();
+           
            
            
         }
@@ -88,45 +42,24 @@ namespace Contact_TracingApp1
             try
             {
                 ConnectionDB.DB();
-                Functions.Functions.gen = "Insert into users(firstname, lastname, email, contact, username, password, dateregistered, roleid)values('"+txtFirstname.Text+"','"+txtLastname.Text+"','"+txtEmailaddress.Text+"','"+txtContactno.Text+"','"+txtUsername.Text+"','"+txtPassword.Text+"','"+DateTime.Now.ToString()+"',1)";
+                Functions.Functions.gen = "Insert into users(firstname, lastname, email, contact, username, password, dateregistered, roleid)values('"+txtFirstname.Text+"','"+txtLastname.Text+"','"+txtEmailaddress.Text+"','"+txtContactno.Text+"','"+txtUsername.Text+"','"+txtPassword.Text+"','"+ DateTime.Now.ToString("yyyy-MM-dd") + "','" +cmbroleid.Text + "')";
                 Functions.Functions.command = new SqlCommand(Functions.Functions.gen, ConnectionDB.conn);
                 Functions.Functions.command.ExecuteNonQuery();
                 MessageBox.Show("You can now log in with your account", "Login", MessageBoxButtons.OK);
                 ConnectionDB.conn.Close();
-                
+
+                Filldata2();
+                this.Close();
+                Form2 main = new Form2();
+                main.Show();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);            
             }
             
-            
-            /*  try
-            {
-              var  m_Client = new MongoClient("mongodb+srv://root:contactred@maincluster.e4trz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority ");
-              var  m_Database = m_Client.GetDatabase("Contact_Tracing");
-              var  m_Collection = m_Database.GetCollection<UserRegistration>("Users");
-               
-
-                UserRegistration registration = new UserRegistration();
-                registration.Firstname = txtFirstname.Text;
-                registration.Lastname = txtLastname.Text;
-                registration.Email = txtEmailaddress.Text;
-                registration.Username = txtUsername.Text;
-                registration.Password = txtPassword.Text;
-                registration.Phonenumber = Convert.ToInt64(txtContactno.Text);
-                
-                m_Collection.InsertOneAsync(registration);.
-
-                
-
-                MessageBox.Show("New user added");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
+           
         }
 
         private void txtFirstname_TextChanged(object sender, EventArgs e)
@@ -136,36 +69,59 @@ namespace Contact_TracingApp1
 
         private void dgvRegistration_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtFirstname.Text = dgvRegistration.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtLastname.Text = dgvRegistration.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtUsername.Text = dgvRegistration.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtPassword.Text = dgvRegistration.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtEmailaddress.Text = dgvRegistration.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtContactno.Text = dgvRegistration.Rows[e.RowIndex].Cells[5].Value.ToString();
+           
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-           /* var update = Builders<UserRegistration>.Update.Set("Firstname", txtFirstname.Text)
-                .Set("Lastname", txtLastname.Text)
-                .Set("Username", txtUsername.Text)
-                .Set("Password", txtPassword.Text)
-                .Set("Email", txtEmailaddress.Text)
-                .Set("Phonenumber", txtContactno.Text);
-          //  m_Collection.UpdateOne(s => s.Id == ObjectId.Parse(txtId.Text), update);
-            Read();
-           */
+           /* try
+            {
+                ConnectionDB.DB();
+                Functions.Functions.gen = "UPDATE users SET firstname = '" + txtFirstname.Text + "'," +
+                    "lastname= '" + txtLastname.Text + "',email'" + txtEmailaddress.Text + "', username= '" + txtUsername.Text + "'," +
+                    "password= '" + txtPassword.Text + "'," +
+                    "roleid= '" + cmbroleid.Text + "';
+                Functions.Functions.command = new SqlCommand(Functions.Functions.gen, ConnectionDB.conn);
+                Functions.Functions.command.ExecuteNonQuery();
+                ConnectionDB.conn.Close();
+                MessageBox.Show("It has been updated!", "Update Record", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                Filldata2();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // m_Collection.DeleteOne(s => s.Id == ObjectId.Parse(txtId.Text));
-           // Read(); 
+           
         }
 
         private void panel12_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dgvRegistration_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Registration_Load(object sender, EventArgs e)
+        {
+            Filldata2();
+        }
+        
+        public void Filldata2()
+        {
+            Functions.Functions.gen = "Select users.userid AS [USER ID], users.firstname AS [FIRST NAME], users.lastname AS [LAST NAME], users.username, users.password, users.dateregistered AS [DATE REGISTERED], role.roleId AS [ROLE] from users INNER JOIN role on role.roleId = users.roleid ";
+            Functions.Functions.fill(Functions.Functions.gen, dgvRegistration);
         }
     }
 }

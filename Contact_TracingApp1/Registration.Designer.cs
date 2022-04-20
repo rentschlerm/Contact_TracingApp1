@@ -40,10 +40,9 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtRoleID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDateregistered = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -71,6 +70,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvRegistration = new System.Windows.Forms.DataGridView();
+            this.cmbroleid = new System.Windows.Forms.ComboBox();
+            this.lbluserid = new System.Windows.Forms.Label();
             this.panel12.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -169,10 +170,11 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.panel12.Controls.Add(this.lbluserid);
+            this.panel12.Controls.Add(this.cmbroleid);
+            this.panel12.Controls.Add(this.dateTimePicker1);
             this.panel12.Controls.Add(this.label9);
-            this.panel12.Controls.Add(this.txtRoleID);
             this.panel12.Controls.Add(this.label8);
-            this.panel12.Controls.Add(this.txtDateregistered);
             this.panel12.Controls.Add(this.btnDelete);
             this.panel12.Controls.Add(this.btnUpdate);
             this.panel12.Controls.Add(this.txtPassword);
@@ -202,6 +204,14 @@
             this.panel12.TabIndex = 1;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Location = new System.Drawing.Point(170, 282);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -211,13 +221,6 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "RoleID";
             // 
-            // txtRoleID
-            // 
-            this.txtRoleID.Location = new System.Drawing.Point(457, 287);
-            this.txtRoleID.Name = "txtRoleID";
-            this.txtRoleID.Size = new System.Drawing.Size(100, 27);
-            this.txtRoleID.TabIndex = 12;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -226,13 +229,6 @@
             this.label8.Size = new System.Drawing.Size(126, 19);
             this.label8.TabIndex = 11;
             this.label8.Text = "Date Registered";
-            // 
-            // txtDateregistered
-            // 
-            this.txtDateregistered.Location = new System.Drawing.Point(170, 287);
-            this.txtDateregistered.Name = "txtDateregistered";
-            this.txtDateregistered.Size = new System.Drawing.Size(189, 27);
-            this.txtDateregistered.TabIndex = 10;
             // 
             // btnDelete
             // 
@@ -496,6 +492,7 @@
             this.tabPage2.Size = new System.Drawing.Size(678, 439);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "View Registration";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // dgvRegistration
             // 
@@ -505,6 +502,26 @@
             this.dgvRegistration.Size = new System.Drawing.Size(668, 393);
             this.dgvRegistration.TabIndex = 0;
             this.dgvRegistration.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistration_CellClick);
+            this.dgvRegistration.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistration_CellContentClick);
+            // 
+            // cmbroleid
+            // 
+            this.cmbroleid.FormattingEnabled = true;
+            this.cmbroleid.Items.AddRange(new object[] {
+            "1"});
+            this.cmbroleid.Location = new System.Drawing.Point(457, 290);
+            this.cmbroleid.Name = "cmbroleid";
+            this.cmbroleid.Size = new System.Drawing.Size(121, 27);
+            this.cmbroleid.TabIndex = 15;
+            // 
+            // lbluserid
+            // 
+            this.lbluserid.AutoSize = true;
+            this.lbluserid.Location = new System.Drawing.Point(609, 414);
+            this.lbluserid.Name = "lbluserid";
+            this.lbluserid.Size = new System.Drawing.Size(60, 19);
+            this.lbluserid.TabIndex = 16;
+            this.lbluserid.Text = "label10";
             // 
             // Registration
             // 
@@ -529,6 +546,7 @@
             this.Name = "Registration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
+            this.Load += new System.EventHandler(this.Registration_Load);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -581,8 +599,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDateregistered;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtRoleID;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbroleid;
+        private System.Windows.Forms.Label lbluserid;
     }
 }
