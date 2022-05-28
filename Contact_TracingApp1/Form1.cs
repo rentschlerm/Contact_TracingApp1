@@ -26,11 +26,11 @@ namespace Contact_TracingApp1
        
         private void button1_Click(object sender, EventArgs e)
         {
-           /* var main = new Form2();
+            var main = new Form2();
             main.Show();
-            Hide();*/
+            Hide();
             
-             int roleid;
+           /*  int roleid;
              try
              {
                  ConnectionDB.DB();
@@ -81,7 +81,7 @@ namespace Contact_TracingApp1
                  MessageBox.Show(ex.Message);
              }
 
-             
+             */
         }
 
         private void label2_Click(object sender, EventArgs e)
